@@ -1,0 +1,39 @@
+[33mcommit 6d9b521ce933b411a0a97d2de221fe5e4a730fd5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Sumaila-dev <82516089+Sumaila-dev@users.noreply.github.com>
+Date:   Sun Apr 2 17:05:39 2023 +0100
+
+    Tried the events functions
+    
+    Using callback functions
+
+[1mdiff --git a/events.js b/events.js[m
+[1mnew file mode 100644[m
+[1mindex 0000000..798ad3d[m
+[1m--- /dev/null[m
+[1m+++ b/events.js[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32mconst EventEmitter = require('events');[m
+[32m+[m[32mconst celebrity = new EventEmitter;[m
+[32m+[m
+[32m+[m[32m// Subscribe to celebrity for observer 1[m[41m [m
+[32m+[m[32mcelebrity.on('race', (result) => {[m
+[32m+[m[32m    if (result === 'win') {[m
+[32m+[m[32m        console.log('Comgratulations! You are the best');[m
+[32m+[m[32m    }[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m
+[32m+[m[32m//subscribe to celebrity for observer 2[m
+[32m+[m[32mcelebrity.on('race', (result) => {[m
+[32m+[m[32m    if (result === 'win') {[m
+[32m+[m[32m        console.log('Boo! I could have done better than that!');[m
+[32m+[m[32m    }[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mprocess.on('exit', (code) => {[m
+[32m+[m[32m    console.log('Process exit event with code: ', code);[m
+[32m+[m[32m})[m
+[32m+[m
+[32m+[m[32mcelebrity.emit('race', 'win');[m
+[32m+[m[32mcelebrity.emit('race', 'lost');[m
+\ No newline at end of file[m
