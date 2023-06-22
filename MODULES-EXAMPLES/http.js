@@ -1,9 +1,9 @@
-const request = require('./request.js')
-const response = require('./response.js')
+const { send } = require('./request.js')
+const { read } = require('./response.js')
 
 function makeRequest(url, data) {
-    request.send(url, data);
-    return response.read();
+    send(url, data);
+    return read();
 
 }
 
